@@ -49,11 +49,18 @@ body {
     align-items: center;
     font-size: 24px;
     font-weight: bold;
-    color: #e74c3c;
+    color: #ff6b35;
 }
 
 .logo .profinity {
-    color: #ffd700;
+    color: #ff6b35;
+}
+
+.logo-image {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    object-fit: contain;
 }
 
 .logo i {
@@ -75,11 +82,11 @@ body {
 }
 
 .nav-link:hover {
-    color: #e74c3c;
+    color: #ff6b35;
 }
 
 .login-btn {
-    background: #e74c3c;
+    background: #ff6b35;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -90,7 +97,7 @@ body {
 }
 
 .login-btn:hover {
-    background: #c0392b;
+    background: #e55a2b;
 }
 
 /* Hero Section */
@@ -142,13 +149,13 @@ body {
 .tool-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border-color: #e74c3c;
+    border-color: #ff6b35;
 }
 
 .tool-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #e74c3c, #f39c12);
+    background: linear-gradient(135deg, #ff6b35, #ff8c42);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -241,7 +248,7 @@ body {
 
 .upload-area:hover .upload-icon,
 .upload-area.dragover .upload-icon {
-    color: #e74c3c;
+    color: #ff6b35;
 }
 
 .upload-content h3 {
@@ -256,7 +263,7 @@ body {
 }
 
 .select-files-btn {
-    background: #e74c3c;
+    background: #ff6b35;
     color: white;
     border: none;
     padding: 15px 30px;
@@ -268,7 +275,7 @@ body {
 }
 
 .select-files-btn:hover {
-    background: #c0392b;
+    background: #e55a2b;
 }
 
 /* File List */
@@ -403,7 +410,7 @@ body {
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #e74c3c, #f39c12);
+    background: linear-gradient(90deg, #ff6b35, #ff8c42);
     width: 0%;
     transition: width 0.3s ease;
 }
@@ -603,7 +610,7 @@ footer {
 /* Loading Spinner */
 .spinner {
     border: 3px solid #f3f3f3;
-    border-top: 3px solid #e74c3c;
+    border-top: 3px solid #ff6b35;
     border-radius: 50%;
     width: 30px;
     height: 30px;
