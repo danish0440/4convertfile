@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDFTools - Online PDF Editor & Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>PDFTools</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="#" class="nav-link">Features</a>
+                    <a href="#" class="nav-link">Pricing</a>
+                    <a href="#" class="nav-link">Help</a>
+                    <button class="login-btn">Login</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Every PDF tool you'll ever need</h1>
+                <p>Edit, convert, compress, merge, split, rotate, sort and protect your PDF documents in just a few clicks.</p>
+            </div>
+        </section>
+
+        <section class="tools-grid">
+            <div class="container">
+                <div class="tools-container">
+                    <!-- PDF Merge Tool -->
+                    <div class="tool-card" data-tool="merge">
+                        <div class="tool-icon">
+                            <i class="fas fa-object-group"></i>
+                        </div>
+                        <h3>Merge PDF</h3>
+                        <p>Combine multiple PDF files into one document</p>
+                    </div>
+
+                    <!-- PDF Split Tool -->
+                    <div class="tool-card" data-tool="split">
+                        <div class="tool-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3>Split PDF</h3>
+                        <p>Extract pages from your PDF or split into multiple files</p>
+                    </div>
+
+                    <!-- PDF Compress Tool -->
+                    <div class="tool-card" data-tool="compress">
+                        <div class="tool-icon">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                        </div>
+                        <h3>Compress PDF</h3>
+                        <p>Reduce file size while maintaining quality</p>
+                    </div>
+
+                    <!-- PDF to Image Tool -->
+                    <div class="tool-card" data-tool="pdf-to-image">
+                        <div class="tool-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <h3>PDF to JPG</h3>
+                        <p>Convert PDF pages to high-quality images</p>
+                    </div>
+
+                    <!-- Image to PDF Tool -->
+                    <div class="tool-card" data-tool="image-to-pdf">
+                        <div class="tool-icon">
+                            <i class="fas fa-file-image"></i>
+                        </div>
+                        <h3>JPG to PDF</h3>
+                        <p>Convert images to PDF documents</p>
+                    </div>
+
+                    <!-- PDF Protect Tool -->
+                    <div class="tool-card" data-tool="protect">
+                        <div class="tool-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Protect PDF</h3>
+                        <p>Add password protection to your PDF files</p>
+                    </div>
+
+                    <!-- PDF Unlock Tool -->
+                    <div class="tool-card" data-tool="unlock">
+                        <div class="tool-icon">
+                            <i class="fas fa-unlock"></i>
+                        </div>
+                        <h3>Unlock PDF</h3>
+                        <p>Remove password protection from PDF files</p>
+                    </div>
+
+                    <!-- PDF Rotate Tool -->
+                    <div class="tool-card" data-tool="rotate">
+                        <div class="tool-icon">
+                            <i class="fas fa-redo"></i>
+                        </div>
+                        <h3>Rotate PDF</h3>
+                        <p>Rotate PDF pages to the correct orientation</p>
+                    </div>
+
+                    <!-- PDF to Word Tool -->
+                    <div class="tool-card" data-tool="pdf-to-word">
+                        <div class="tool-icon">
+                            <i class="fas fa-file-word"></i>
+                        </div>
+                        <h3>PDF to Word</h3>
+                        <p>Convert PDF documents to editable Word files</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tool Interface Section (Hidden by default) -->
+        <section class="tool-interface" id="tool-interface" style="display: none;">
+            <div class="container">
+                <div class="tool-header">
+                    <button class="back-btn" id="back-btn">
+                        <i class="fas fa-arrow-left"></i> Back to tools
+                    </button>
+                    <h2 id="tool-title">PDF Tool</h2>
+                </div>
+
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <h3>Select PDF files</h3>
+                        <p>or drop files here</p>
+                        <input type="file" id="file-input" multiple accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+                        <button class="select-files-btn" id="select-files-btn">Select files</button>
+                    </div>
+                </div>
+
+                <div class="file-list" id="file-list" style="display: none;">
+                    <div class="files-container" id="files-container"></div>
+                    <div class="action-buttons">
+                        <button class="process-btn" id="process-btn">Process Files</button>
+                        <button class="clear-btn" id="clear-btn">Clear All</button>
+                    </div>
+                </div>
+
+                <div class="progress-section" id="progress-section" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p class="progress-text" id="progress-text">Processing...</p>
+                </div>
+
+                <div class="result-section" id="result-section" style="display: none;">
+                    <div class="result-content">
+                        <i class="fas fa-check-circle result-icon"></i>
+                        <h3>Processing Complete!</h3>
+                        <button class="download-btn" id="download-btn">
+                            <i class="fas fa-download"></i> Download Result
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>PDFTools</span>
+                    </div>
+                    <p>Your trusted online PDF editor and converter</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="#">Merge PDF</a></li>
+                        <li><a href="#">Split PDF</a></li>
+                        <li><a href="#">Compress PDF</a></li>
+                        <li><a href="#">Convert PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PDFTools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
