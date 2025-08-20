@@ -660,7 +660,21 @@ async function mergePDFs(files) {
     }
     
     updateProgress(90, 'Generating merged PDF...');
-    const pdfBytes = await mergedPdf.save();
+    
+    // Set PDF metadata to ensure compatibility
+    mergedPdf.setTitle('Merged PDF Document');
+    mergedPdf.setAuthor('4ConvertFile');
+    mergedPdf.setSubject('Merged PDF Files');
+    mergedPdf.setCreator('4ConvertFile PDF Merger');
+    mergedPdf.setProducer('PDF-lib');
+    mergedPdf.setCreationDate(new Date());
+    mergedPdf.setModificationDate(new Date());
+    
+    const pdfBytes = await mergedPdf.save({
+        useObjectStreams: false,
+        addDefaultPage: false,
+        objectsPerTick: 50
+    });
     
     updateProgress(100, 'Complete!');
     
@@ -699,8 +713,21 @@ async function splitPDF(file) {
         const [copiedPage] = await singlePagePdf.copyPages(pdf, [pageNumber - 1]);
         singlePagePdf.addPage(copiedPage);
         
-        // Generate PDF bytes
-        const pdfBytes = await singlePagePdf.save();
+        // Set PDF metadata to ensure compatibility
+        singlePagePdf.setTitle(`Page ${pageNumber}`);
+        singlePagePdf.setAuthor('4ConvertFile');
+        singlePagePdf.setSubject('Split PDF Page');
+        singlePagePdf.setCreator('4ConvertFile PDF Splitter');
+        singlePagePdf.setProducer('PDF-lib');
+        singlePagePdf.setCreationDate(new Date());
+        singlePagePdf.setModificationDate(new Date());
+        
+        // Generate PDF bytes with proper options
+        const pdfBytes = await singlePagePdf.save({
+            useObjectStreams: false,
+            addDefaultPage: false,
+            objectsPerTick: 50
+        });
         
         // Add to ZIP with filename
         const filename = `page_${pageNumber}.pdf`;
@@ -736,9 +763,18 @@ async function compressPDF(file) {
     
     updateProgress(70, 'Compressing PDF...');
     
+    // Set PDF metadata to ensure compatibility
+    pdf.setTitle('Compressed PDF Document');
+    pdf.setAuthor('4ConvertFile');
+    pdf.setSubject('Compressed PDF File');
+    pdf.setCreator('4ConvertFile PDF Compressor');
+    pdf.setProducer('PDF-lib');
+    pdf.setModificationDate(new Date());
+    
     const pdfBytes = await pdf.save({
         useObjectStreams: false,
-        addDefaultPage: false
+        addDefaultPage: false,
+        objectsPerTick: 50
     });
     
     updateProgress(100, 'Complete!');
